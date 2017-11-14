@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using XJIF.Utils;
+using XJDAO;
 
 namespace XJIF
 {
@@ -15,8 +16,13 @@ namespace XJIF
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "application/json;charset=utf-8";
-            var strJson = new { message = "Hello World!" };
-            context.Response.Write(JSONHelper.ToJson(strJson));
+
+            using (var content = new XJDAO.XJ_Entities())
+            {
+                var buildings = from b in content.B_BUILDING
+                                select new { b.id, b.building_code, b.building_name, b.project_code, b.type, b.create_date, b.remark };
+                context.Response.Write(JSONHelper.ToJson(buildings));
+            }            
         }
 
         public bool IsReusable
