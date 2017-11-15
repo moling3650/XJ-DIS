@@ -70,9 +70,9 @@
     <Content Include="API.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XJDAO\XJDAO.csproj">
-      <Project>{6D630711-C79B-4361-BDF8-44F383CCB5C8}</Project>
-      <Name>XJDAO</Name>
+    <ProjectReference Include="..\XJBLL\XJBLL.csproj">
+      <Project>{C8605F93-55FE-4783-9C7F-2FBBD1654A60}</Project>
+      <Name>XJBLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -83,7 +83,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>22768</DevelopmentServerPort>
+          <DevelopmentServerPort>24086</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

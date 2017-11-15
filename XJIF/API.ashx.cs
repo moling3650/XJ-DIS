@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using XJIF.Utils;
-using XJDAO;
 
 namespace XJIF
 {
@@ -17,12 +16,14 @@ namespace XJIF
         {
             context.Response.ContentType = "application/json;charset=utf-8";
 
-            using (var content = new XJDAO.XJ_Entities())
-            {
-                var buildings = from b in content.B_BUILDING
-                                select new { b.id, b.building_code, b.building_name, b.project_code, b.type, b.create_date, b.remark };
-                context.Response.Write(JSONHelper.ToJson(buildings));
-            }            
+            //using (var content = new XJDAO.XJ_Entities())
+            //{
+            //    var buildings = from b in content.B_BUILDING
+            //                    select new { b.id, b.building_code, b.building_name, b.project_code, b.type, b.create_date, b.remark };
+            //    context.Response.Write(JSONHelper.ToJson(buildings));
+            //}
+            object obj = XJBLL.BLL.Project.getItems();
+            context.Response.Write(JSONHelper.ToJson(obj));
         }
 
         public bool IsReusable
